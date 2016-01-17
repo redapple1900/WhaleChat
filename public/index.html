@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WhaleChat: Your Private Chat Room</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <ul class="pages">
+    <li class="chat page">
+      <div class="chatArea">
+        <ul class="messages"></ul>
+      </div>
+      <input class="inputMessage" placeholder="Type here..."/>
+    </li>
+    <li id="login" class="regular page">
+      <div class="form">
+        <h3 class="title">What's your nickname?</h3>
+        <input id="username" class="nameInput" type="text" maxlength="14" />
+      </div>
+    </li>
+    <li id="room" class="regular page">
+      <div class="form">
+        <h3 class="title">What's the name of the room?</h3>
+        <input id="roomname" class="nameInput" type="text" maxlength="14" />
+      </div>
+    </li>
+  </ul>
+
+  <script src="/js/jquery-1.11.3.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/main.js"></script>
+</body>
+</html>
