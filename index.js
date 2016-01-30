@@ -10,7 +10,7 @@ var client;
 if (redis_url) {
     var rtg = require('url').parse(redis_url);
     client = require('redis').createClient(rtg.port, rtg.hostname);
-    client.auth(rtg.auth.split(':')[1]);
+	client.auth(rtg.auth.split(':')[1]);
 } else {
     client = require('redis').createClient();
 }
@@ -34,7 +34,6 @@ var numUsers = 0;
 io.on('connection', function(socket) {
 
 	var addedUser = false;
-
 	// when the client emits 'new message', this listens and executes
 	socket.on('new message', function(data) {
 		// we tell the client to execute 'new message'
@@ -42,7 +41,6 @@ io.on('connection', function(socket) {
 			username : socket.username,
 			message : data
 		};
-
 		socket.broadcast.to(socket.room).emit('new message', msg);
 		client.lpush(socket.room, JSON.stringify(msg));
 	});
@@ -58,7 +56,7 @@ io.on('connection', function(socket) {
 		++numUsers;
 		addedUser = true;
 	});
-
+    
 	socket.on('set room', function(roomname) {
 		socket.room = roomname;
 		console.log(roomname)
@@ -72,13 +70,21 @@ io.on('connection', function(socket) {
 			username : socket.username,
 			numUsers : numUsers
 		});
-		client.exists(socket.room, function(err, reply) {
-			if (reply === 1) { //There is key
-				client.lrange(socket.room, 0, 0, function(err, msg) {
+		// Send the most recent messages to recently joined users.
+		client.exists(socket.room, function (err, reply) {
+			if (err) {
+			} else { //There is key
+				client.lrange(socket.room, 0, 4, function(err, msg) {
 					if (err) {
 						console.log("Redis Read Error:" + err);
 					} else {
-						socket.emit('new message', JSON.parse(msg[0]));
+                        for (var i = 0; i < 5; i++) {
+                            if (msg[i]) {
+                                socket.emit('new message', JSON.parse(msg[i]));
+                            } else {
+                                break
+                            }
+						}
 					}
 				});
 			}
