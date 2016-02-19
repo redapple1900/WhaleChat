@@ -1,0 +1,72 @@
+/***
+ * Page level stylesheet for index.html
+ */
+
+
+.no-left-padding {
+  padding-left: 0;
+}
+
+.hilight-header {
+  padding-bottom: 20px;
+}
+
+.paragraph {
+  line-height: 1.4;
+  padding-bottom: 18px;
+}
+
+.paragraph ul {
+  font-size: 16px;
+}
+
+.paragraph ul img {
+  vertical-align:text-top;
+}
+
+.tagline {
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+.tagline a {
+  padding-right: 10px;
+}
+
+.tagline .disable {
+  color: #0088cc;
+}
+
+.social-block {
+  margin-top: 20px;
+  margin-right: 37px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.social-choices {
+  text-align: right;
+  margin-right: 25px;
+}
+
+.btn-action {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+.glyphicon {
+  margin-left: 10px;
+}
+
+.important {
+  color: red;
+}
+
+.things-to-do .btn {
+  margin: 0 20px;
+}
+
+.things-to-do .btn:first-child {
+  margin-left: 0;
+}
+

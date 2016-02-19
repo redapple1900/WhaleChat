@@ -1,0 +1,40 @@
+﻿<footer class="site-footer container" style="margin-top: -138px;">
+    <hr>
+    <p class="text-center">
+        <iframe class="iubenda-ibadge" scrolling="no" frameborder="0" allowtransparency="true" style="width: 105px; height: 22px;"></iframe>
+    </p>
+    <p class="text-center">Copyright © 2016 BigWhale</p>
+</footer>
+
+<script>
+    (function ($, w, d) {
+        var loader = function () {
+            var s = d.createElement("script"),
+                tag = d.getElementsByTagName("script")[0];
+            s.src = "//cdn.iubenda.com/iubenda.js";
+            tag.parentNode.insertBefore(s, tag);
+            s.onload = setFooterStyles;
+        };
+        if (w.addEventListener) {
+            w.addEventListener("load", loader, false);
+        } else if (w.attachEvent) {
+            w.attachEvent("onload", loader);
+        } else { w.onload = loader; }
+
+        $(function () {
+            $('#navBar-right img').addClass('img-rounded');
+            setFooterStyles();
+        });
+
+        function setFooterStyles() {
+            var $footer = $('.site-footer'),
+                height = $footer.outerHeight();
+            $footer.css('margin-top', -height);
+            $('.content-wrapper').css('padding-bottom', height);
+        }
+    }(jQuery, window, document));
+</script>
+
+<a href="mailto:admin@leetcode.com?subject=Feedback" id="chat-link" target="_blank">
+    <i class="glyphicon glyphicon-envelope"></i>Send Feedback
+</a>
