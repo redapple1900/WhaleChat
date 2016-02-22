@@ -8,7 +8,8 @@ module.exports = function (server) {
 
     // TODO:: 1. Authentication
     
-    io.on('connection', function (socket) {
+    io.of('/chat')
+    .on('connection', function (socket) {
         
         var addedUser = false;
         // when the client emits 'new message', this listens and executes

@@ -13,7 +13,8 @@ $(function () {
     var $roomnameInput = $('#roomname'); // Input for roomname
     var $messages = $('.messages'); // Messages area
     var $inputMessage = $('.inputMessage'); // Input message input box
-    
+    var $sendButton = $('#send');
+
     // Prompt for setting a username
     var username;
     var roomname;
@@ -184,7 +185,7 @@ $(function () {
         return COLORS[index];
     }
     
-    var socket = io();
+    var socket = io('/chat');
     setChat();
 
     // Keyboard events
@@ -209,6 +210,13 @@ $(function () {
     });
     
     // Click events
+    $sendButton.click(function () {
+        if (username && roomname) {
+            sendMessage();
+            socket.emit('stop typing');
+            typing = false;
+        }
+    })
         
     // Focus input when clicking on the message input's border
     $inputMessage.click(function () {

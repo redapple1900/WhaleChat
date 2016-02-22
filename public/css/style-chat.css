@@ -51,8 +51,8 @@ ul {
 /* Messages */
 
 .chatArea {
-  height: 90%;
-  overflow:auto;
+  height: auto;
+  overflow: auto;
 }
 
 .messages {
