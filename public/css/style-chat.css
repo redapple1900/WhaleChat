@@ -48,11 +48,40 @@ ul {
   text-align: center;
 }
 
+/* Panel */
+
+.chat {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.chat-heading {
+   top: 0;
+   height: 5%; 
+}
+
+.chat-body {
+   top: 5%;
+   bottom: 10%;
+   height: 85%;
+}
+
+.chat-footer {
+   bottom: 0;
+   height: 10%; 
+}
 /* Messages */
 
 .chatArea {
-  height: auto;
+  display: block;
+  height: 100%;
   overflow: auto;
+  clear: both;
 }
 
 .messages {
