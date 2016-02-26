@@ -62,18 +62,18 @@ ul {
 
 .chat-heading {
    top: 0;
-   height: 5%; 
+   height: 65px; 
 }
 
 .chat-body {
-   top: 5%;
-   bottom: 10%;
-   height: 85%;
+   top: 65px;
+   bottom: 50px;
+   height: calc(100% - 115px)
 }
 
 .chat-footer {
    bottom: 0;
-   height: 10%; 
+   height: 50px; 
 }
 /* Messages */
 
